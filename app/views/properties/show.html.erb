@@ -1,0 +1,7 @@
+<%= @property.name %>
+<%= @property.location.name %>, <%= @property.location.state %>
+<%= @property.bedrooms %>
+<%= @property.bathrooms %>
+<% @property.amenities.each do |amenity| %>
+ <li>  <%= amenity %> </li> 
+ <% end %>

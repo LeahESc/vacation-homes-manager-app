@@ -12,7 +12,16 @@ class PropertiesController < ApplicationController
     def create 
         binding.pry 
         @property = Property.new(property_params)
+        if @property.save 
+            redirect_to property_path(@property)
+        else  
+            redirect_to new_property_path
+        end
     end 
+
+    def show 
+        @property = Property.find_by(id: params[:id])
+    end
 
     def edit 
         @property = Property.find_by(id: params[:id])
@@ -24,7 +33,8 @@ class PropertiesController < ApplicationController
     private 
 
     def property_params 
-        params.require(:property).permit(:name, 
+        params.require(:property).permit(
+            :name, 
             :user_id, 
             :location_id, 
             :bedrooms, 
