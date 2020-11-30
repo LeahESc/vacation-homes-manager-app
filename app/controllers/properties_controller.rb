@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
 
     def create 
         binding.pry 
-        @property = Property.new(property_params)
+        @property = current_user.properties.build(property_params)
         if @property.save 
             redirect_to property_path(@property)
         else  
