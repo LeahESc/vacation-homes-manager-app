@@ -11,11 +11,10 @@
       margin-bottom: 15px;
     }
     
-    
-    // Checkboxes and radios
-    //
-    // Indent the labels to position radios/checkboxes as hanging controls.
-    
+    .label-checkbox{
+      padding-left: 15px;
+  }
+  
     .custom-control-input {
       position: relative;
       display: block;
@@ -42,4 +41,9 @@
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
+
+    input[type='checkbox'] {
+      width: 50px;
+      height: 50px;
+   }
   }
