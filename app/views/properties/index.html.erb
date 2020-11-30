@@ -1,22 +1,26 @@
 <h2> Your vacation properties:  </h2>
-<% @properties.each do |p|%>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= p.name %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= p.location.name %>, <%= p.location.state %></h6>
-    <p class="card-text">
-        Bedrooms: <%= p.bedrooms %></p>
-        Bathrooms: <%= p.bathrooms %></p>
-        Amenities: 
-        <% p.amenities.each do |amenity|%>
-        <li>
-        <%= amenity.name %></li>
-        <% end %></p>
-    <a href="edit_property_path(p)" class="card-link">Edit this Property</a>
-    <a href="property_path(p)" class="card-link">View This Property</a>
-  </div>
-</div>
+<div class="container">
+     <div class="row row-cols-3">
+        <% @properties.each do |p|%>
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= p.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= p.location.name %>, <%= p.location.state %></h6>
+            <p class="card-text">
+                Bedrooms: <%= p.bedrooms %></p>
+                Bathrooms: <%= p.bathrooms %></p>
+                Amenities: 
+                <% p.amenities.each do |amenity|%>
+                <li>
+                <%= amenity.name %></li>
+                <% end %></p>
+            <button><%= link_to "Edit Property", edit_property_path(p) %></button>
+            <button><%= link_to "View Property", property_path(p) %></button>
+        </div>
+        </div>
   <% end %>
+<div class="center">
+    <button><%= link_to "Add new property", new_property_path %></button>
+</div>
 
- <button><%= link_to "Add new property", new_property_path %></button>
 
