@@ -1,14 +1,20 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+   <div class="navbar-nav">
+    <div class="form-inline">
+    <% if !user_signed_in? %>
+      <a class="nav-item nav-link" href="/signup">Signup</a>
+      <a class="nav-item nav-link" href="/login">Login</a>
+    <% else  %>
+        <a class="nav-item nav-link" href="/"> Welcome, <%= current_user.username %>  </a>
+       <a class="nav-item nav-link" href="/logout">Logout</a>
+    <% end%>
+    </div>
+  </div>
+</nav>
     
-      <nav class="navbar navbar-light" style="background-color: #212b3b;"> 
-        <a class="navbar-brand" href="/">Home</a>
-        <div class="form-inline">
-      <a class="nav-link active" color= "#ffeacc;"  href="/sign_up">Signup</a>
-      <a class="nav-link active" href="/login">Login</a>
-        <div class="form-inline">
-        <a class="nav-link active" href="/logout">Logout</a>
-      </div>
-      </div>
-      </nav>
     
 
 
