@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_174414) do
+ActiveRecord::Schema.define(version: 2020_11_24_230740) do
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string "full_name"
+    t.integer "rating"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "name"
+    t.integer "bedrooms"
+    t.integer "bathrooms"
+    t.integer "user_id"
+    t.integer "location_id"
+    t.boolean "available"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "property_amenities", force: :cascade do |t|
+    t.integer "property_id"
+    t.integer "amenity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
