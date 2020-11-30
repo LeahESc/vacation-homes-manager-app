@@ -1,0 +1,13 @@
+<% if @property.errors.full_messages.any? %>
+    <% @property.errors.full_messages.each do |error_message| %>
+        <%= error_message if @property.errors.full_messages.first == error_message %> <br />
+    <% end %>
+<% end %>
+
+<h1>Update property</h1>
+<div class="margin">
+<%= render partial: "form", locals: {property: @property} %>
+</div>
+<br>
+<br>
+<br>
