@@ -7,10 +7,11 @@ class PropertiesController < ApplicationController
     def new 
         @property = Property.new 
         @amenitites = Amenity.all 
+
     end 
 
     def create 
-        binding.pry 
+        # binding.pry 
         @property = current_user.properties.build(property_params)
         if @property.save 
             redirect_to property_path(@property)
@@ -20,14 +21,22 @@ class PropertiesController < ApplicationController
     end 
 
     def show 
-        @property = Property.find_by(id: params[:id])
+        @property = current_user.properties.find_by(id: params[:id])
     end
 
     def edit 
-        @property = Property.find_by(id: params[:id])
+        @property = current_user.properties.find_by(id: params[:id])
     end 
 
     def update
+        binding.pry
+        @property = current_user.properties.find_by(id: params[:id])
+        if @property.update(property_params)
+            redirect_to property_path(@property)
+        else 
+            flash[:error] = 'There was a problem updating your property, please try again.'
+            redirect_to edit_property_path(@property)
+        end 
     end
 
     private 
