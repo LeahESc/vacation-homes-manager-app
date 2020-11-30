@@ -1,0 +1,21 @@
+<%= form_for @property do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %> <br>
+<h4>Choose from an existing location: </h4> 
+<%=  f.collection_select :location_id, Location.all, :id, :name, :include_blank => true   %> <br>
+<%= f.fields_for :location, Location.new do |p_location| %>
+    <h4> Or create a new location: </h4> 
+    <%= p_location.label :name %>
+    <%= p_location.text_field :name %> <br> <br>
+    <%= p_location.label :state %>
+    <%= p_location.text_field :state %> <br> <br>
+    <% end %>
+<%= f.label :bedrooms %>
+<%= f.text_field :bedrooms %> <br>
+<%= f.label :bathrooms %>
+<%= f.text_field :bathrooms %> <br>
+<%= f.label "Amenities:" %>
+<%= f.collection_check_boxes :amenity_ids, Amenity.all, :id, :name %> <br>
+
+   <%= f.submit @property.persisted? ? "Update Property" : "Add Property" %>
+<% end %>
