@@ -16,7 +16,7 @@ class PropertiesController < ApplicationController
         if @property.save 
             redirect_to property_path(@property)
         else  
-            redirect_to new_property_path
+            render :new
         end
     end 
 
