@@ -1,0 +1,15 @@
+<h2> Your vacation properties:  </h2>
+<% @properties.each do |p|%>
+    <h4> <%= p.name %></h4>
+    <h3> <%= p.location.name %>, <%= p.location.state %> </h3>
+    <p>Bedrooms: <%= p.bedrooms %></p>
+    <p>Bathrooms: <%= p.bathrooms %></p>
+    <p>Amenities: </p>
+    <p>Past Guests </p>
+    <%= link_to "Edit this property", edit_property_path(p) %>
+    <br>
+    <br>
+ <% end %>
+
+ <button><%= link_to "Add new property", new_property_path %></button>
+
