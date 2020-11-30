@@ -17,7 +17,8 @@
 	}
 
 	.margin {
-        margin-left: 50px;
+		margin-left: 50px;
+		margin-right: 50px;
     
 	}
 
@@ -26,7 +27,7 @@
 		font-weight: 300;
 		color: #777;
 		line-height: 1.65em;
-		font-size: 15pt;
+		font-size: 12pt;
 	}
 
 
@@ -86,45 +87,12 @@
 		color: #666;
 	}
 
-	em, i {
-		font-style: italic;
-	}
-
-	sub {
-		position: relative;
-		top: 0.5em;
-		font-size: 0.8em;
-	}
-
-	sup {
-		position: relative;
-		top: -0.5em;
-		font-size: 0.8em;
-	}
-
 	hr {
 		border: 0;
 		border-top: solid 1px #ddd;
 	}
 
-	blockquote {
-		border-left: solid 0.5em #ddd;
-		padding: 1em 0 1em 2em;
-		font-style: italic;
-	}
-
-	p {
-		text-align: justify;
-		margin-bottom: 2em;
-	}
-
-	ul, ol, dl, table, blockquote {
-		margin-bottom: 2em;
-	}
-
-	br.clear {
-		clear: both;
-	}
+	
 
 /* Container */
 

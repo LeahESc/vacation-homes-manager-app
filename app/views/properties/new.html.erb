@@ -4,5 +4,7 @@
     <% end %>
 <% end %>
 
-Add a new property to your list 
-<%= render 'form' %>
+<h1>Add a new property</h1>
+<div class="margin">
+<%= render partial: "form", locals: {property: @property} %>
+</div>

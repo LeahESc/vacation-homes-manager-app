@@ -1,15 +1,22 @@
 <h2> Your vacation properties:  </h2>
 <% @properties.each do |p|%>
-    <h4> <%= p.name %></h4>
-    <h3> <%= p.location.name %>, <%= p.location.state %> </h3>
-    <p>Bedrooms: <%= p.bedrooms %></p>
-    <p>Bathrooms: <%= p.bathrooms %></p>
-    <p>Amenities: </p>
-    <p>Past Guests </p>
-    <%= link_to "Edit this property", edit_property_path(p) %>
-    <br>
-    <br>
- <% end %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= p.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= p.location.name %>, <%= p.location.state %></h6>
+    <p class="card-text">
+        Bedrooms: <%= p.bedrooms %></p>
+        Bathrooms: <%= p.bathrooms %></p>
+        Amenities: 
+        <% p.amenities.each do |amenity|%>
+        <li>
+        <%= amenity.name %></li>
+        <% end %></p>
+    <a href="edit_property_path(p)" class="card-link">Edit this Property</a>
+    <a href="property_path(p)" class="card-link">View This Property</a>
+  </div>
+</div>
+  <% end %>
 
  <button><%= link_to "Add new property", new_property_path %></button>
 
