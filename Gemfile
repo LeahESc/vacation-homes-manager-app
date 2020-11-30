@@ -25,6 +25,7 @@ gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 gem 'pry'
 gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
