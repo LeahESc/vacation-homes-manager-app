@@ -1,9 +1,14 @@
 <h1> Your vacation properties </h1>
-<div class="container">
-     <div class="row row-cols-4">
+
+     <div class="row row-cols-3">
         <% @properties.each do |p|%>
         <div class="card" style="width: 18rem;">
+        <% if p.avatar.attached? %>
+        <img src="<%= (url_for(p.avatar)) %>" class="card-img-top" alt="...">
+        <% end %>
         <div class="card-body">
+        
+         
             <h2 class="card-title"><%= p.name %></h2>
             <h3 class="card-subtitle mb-2 text-muted"><%= link_to p.location.name , location_path(p.location) %>, <%= p.location.state%> </h3>
             <h3 class="card-text">
