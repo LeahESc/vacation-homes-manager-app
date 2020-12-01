@@ -9,6 +9,17 @@
       <a class="nav-item nav-link" href="/login">Login</a>
     <% else  %>
         <a class="nav-item nav-link" href="/"> Welcome, <%= current_user.username %>  </a>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/locations" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Locations
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% current_user.locations.uniq.each do |location| %>
+            <a class="dropdown-item" href="locations/<%= location.id %>"><%= location.name %></a>
+            <%end%>
+          </div>
+        </li>
+        <a class="nav-item nav-link" href="/properties/new"> Add New Property</a>
        <a class="nav-item nav-link" href="/logout">Logout</a>
     <% end%>
     </div>
