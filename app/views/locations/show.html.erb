@@ -1,0 +1,28 @@
+
+<h1><%= @location.name %>, <%= @location.state %> </h1>
+   
+
+    <div class="container">
+        <div class="row row-cols-3">
+         <% @properties.each do |property| %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                 <h5 class="card-title"><%= property.name %></h5>
+                <p class="card-text">
+                Bedrooms: <%= property.bedrooms %></p>
+                Bathrooms: <%= property.bathrooms %></p>
+                Amenities: 
+                <% property.amenities.each do |amenity|%>
+                <li>
+                <%= amenity.name %></li>
+                <% end %></p>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    </div>
+
+<div class="center">
+    <button><%= link_to "Add new property to this location", new_location_property_path(@location) %></button>
+</div>
+    
