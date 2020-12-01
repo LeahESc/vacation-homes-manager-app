@@ -21,21 +21,11 @@ class PropertiesController < ApplicationController
     end 
 
     def show
-        if @property
-            render :show 
-        else  
-            flash[:error]  = "I'm sorry, you don't have access to view that page."
-            redirect_to properties_path
-        end 
+        # binding.pry
+      
     end
 
     def edit 
-        if @property
-            render :edit 
-        else  
-            flash[:error]  = "I'm sorry, you don't have access to view that page."
-            redirect_to properties_path
-        end 
     end 
 
     def update
@@ -51,10 +41,16 @@ class PropertiesController < ApplicationController
         redirect_to properties_path
     end 
 
+
     private 
 
     def set_property 
+        # binding.pry
         @property = current_user.properties.find_by(id: params[:id])
+        if !@property
+            flash[:error]  = "I'm sorry, you don't have access to view that page."
+            redirect_to properties_path
+        end 
     end
     
     def property_params 
