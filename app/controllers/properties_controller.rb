@@ -1,8 +1,9 @@
 class PropertiesController < ApplicationController
-    before_action :redirect 
+    before_action :redirect
+    before_action :set_property, only: [:show, :edit, :update, :destroy]
     
     def index 
-        @properties = current_user.properties
+        @properties = current_user.properties.latest
     end 
 
     def new 
@@ -11,7 +12,6 @@ class PropertiesController < ApplicationController
     end 
 
     def create 
-        # binding.pry 
         @property = current_user.properties.build(property_params)
         if @property.save 
             redirect_to property_path(@property)
@@ -20,27 +20,43 @@ class PropertiesController < ApplicationController
         end
     end 
 
-    def show 
-        @property = current_user.properties.find_by(id: params[:id])
+    def show
+        if @property
+            render :show 
+        else  
+            flash[:error]  = "I'm sorry, you don't have access to view that page."
+            redirect_to properties_path
+        end 
     end
 
     def edit 
-        @property = current_user.properties.find_by(id: params[:id])
+        if @property
+            render :edit 
+        else  
+            flash[:error]  = "I'm sorry, you don't have access to view that page."
+            redirect_to properties_path
+        end 
     end 
 
     def update
-        # binding.pry
-        @property = current_user.properties.find_by(id: params[:id])
         if @property.update(property_params)
             redirect_to property_path(@property)
         else 
-            flash[:error] = 'There was a problem updating your property, please try again.'
             render :edit
         end 
     end
 
+    def destroy 
+        @property.destroy
+        redirect_to properties_path
+    end 
+
     private 
 
+    def set_property 
+        @property = current_user.properties.find_by(id: params[:id])
+    end
+    
     def property_params 
         params.require(:property).permit(
             :name, 
