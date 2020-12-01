@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
       end
     end 
 
+    private 
+
+    def redirect 
+      if !user_signed_in? 
+        redirect_to '/'
+      end 
+    end 
     # protected
   
     # def configure_permitted_parameters
