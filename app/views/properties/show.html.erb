@@ -1,7 +1,11 @@
 <h1><%= @property.name %> <br></h1>
-<%= @property.location.name %>, <%= @property.location.state %> <br>
-Bedrooms: <%= @property.bedrooms %> <br>
-Bathrooms: <%= @property.bathrooms %> <br>
-<% @property.amenities.each do |amenity| %>
- <li>  <%= amenity.name %> </li> 
- <% end %>
+
+    <%= @property.location.name %>, <%= @property.location.state %> <br>
+    Bedrooms: <%= @property.bedrooms %> <br>
+    Bathrooms: <%= @property.bathrooms %> <br>
+    <% @property.amenities.each do |amenity| %>
+        <li>  <%= amenity.name %> </li> 
+     <% end %>
+
+ <button><%= link_to "Edit Property", edit_property_path(@property) %></button>
+<button><%= link_to "Return to home", properties_path %></button>
