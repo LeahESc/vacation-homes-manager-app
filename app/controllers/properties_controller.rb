@@ -1,13 +1,13 @@
 class PropertiesController < ApplicationController
-
+    before_action :redirect 
+    
     def index 
         @properties = current_user.properties
     end 
 
     def new 
-        @property = Property.new 
+        @property = Property.new(location_id: params[:location_id]) 
         @amenitites = Amenity.all 
-
     end 
 
     def create 
