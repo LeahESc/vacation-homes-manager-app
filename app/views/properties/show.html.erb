@@ -7,5 +7,6 @@
         <li>  <%= amenity.name %> </li> 
      <% end %>
 
- <button><%= link_to "Edit Property", edit_property_path(@property) %></button>
+<button><%= link_to "Edit Property", edit_property_path(@property) %></button>
+<button><%= link_to "Delete Property", @property, method: :delete, data: { confirm: 'Are you sure?' }%></button>
 <button><%= link_to "Return to home", properties_path %></button>
