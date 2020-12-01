@@ -1,13 +1,14 @@
 <body>
-    <div class="error">
+    
         <% if @property.errors.any? %>
-            
+        <div class="error-message">
                 <% @property.errors.full_messages.each do |error_message| %>
-                <li><%=error_message%> </li>
-            </div>
+                <span class="error-text"><%=error_message%> </span>
             <% end %>
         <% end %>
-
+        </div>
+    </div>
+<br>
         <h1>Add a new property</h1>
         <div class="margin">
         <%= render partial: "form", locals: {property: @property} %>

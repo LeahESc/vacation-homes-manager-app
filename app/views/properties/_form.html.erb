@@ -4,12 +4,18 @@
     <%= f.text_field :name, class: "form-control" %> <br>
     </div>
    
+     <div class= "form-group">
+    <%= f.label "Photo" %>
+    <%= f.file_field :avatar, class: "form-control" %> <br>
+    </div>
+   
     <% if property.location_id.nil? %>
 
     <div class="form-group">
     <h3>Choose from an existing location: </h3> 
     <%= f.collection_select :location_id, Location.all, :id, :name, :include_blank => true, class: "form-control"  %> <br>
     <br>
+
         <%= f.fields_for :location, Location.new do |p_location| %> <br>
             <h3> Or create a new location: </h3> 
             <div class= "form-group">
@@ -25,6 +31,7 @@
                 </div>
             </div>
         <% end %>
+
     <% else %>
     <%= f.hidden_field :location_id %>
     <%end%>

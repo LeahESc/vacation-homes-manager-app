@@ -15,7 +15,7 @@ User.create(username: "Anna", email:"Anna@anna.com", password: "anna")
 Property.create(name: "Tahoe Chalet", bedrooms: 5, bathrooms: 4, user_id: 4, location_id: 1, available: 1)
 Property.create(name: "Idylwild Cabin", bedrooms: 3, bathrooms: 2, user_id: 5, location_id: 2, available: 1)
 Property.create(name: "Malibu Beach House", bedrooms: 4, bathrooms: 3, user_id: 4, location_id: 3, available: 1)
-Property.create(name: "Cozy Maine Cottage", bedrooms: 2, bathrooms: 2, user_id: 8, location_id: 4, available: 1)
+Property.create(name: "Cozy Maine Cottage", bedrooms: 2, bathrooms: 2, user_id: 5, location_id: 4, available: 1)
 Property.create(name: "Desert Retreat", bedrooms: 4, bathrooms: 3, user_id: 6, location_id: 6, available: 1)
 
 

@@ -15,6 +15,7 @@ class LocationsController < ApplicationController
                 @properties = current_user.properties.where(location_id: params[:id])
                 render :show 
             end 
+            
         else  
         redirect_to '/' 
         end  

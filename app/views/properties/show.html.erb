@@ -1,10 +1,15 @@
 <h1><%= @property.name %> <br></h1>
 
-    <%= @property.location.name %>, <%= @property.location.state %> <br>
-    Bedrooms: <%= @property.bedrooms %> <br>
-    Bathrooms: <%= @property.bathrooms %> <br>
+    <% if @property.avatar.attached? %>
+        <image src="<%= (url_for(@property.avatar)) %>">
+    <% end %>
+    
+    <h2><%= @property.location.name %>, <%= @property.location.state %></h2>
+    <h3>Bedrooms: <%= @property.bedrooms %> <br></h3>
+    <h3>Bathrooms: <%= @property.bathrooms %> <br></h3>
+    <h3>Amenities:</h3>
     <% @property.amenities.each do |amenity| %>
-        <li>  <%= amenity.name %> </li> 
+       <p>  <li> <%= amenity.name %> </li> </p>
      <% end %>
 
 <button><%= link_to "Edit Property", edit_property_path(@property) %></button>

@@ -1,32 +1,31 @@
-<h2> Your vacation properties:  </h2>
+<h1> Your vacation properties </h1>
 <div class="container">
-     <div class="row row-cols-5">
+     <div class="row row-cols-4">
         <% @properties.each do |p|%>
         <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title"><%= p.name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= link_to p.location.name , location_path(p.location) %>, <%= p.location.state%> </h6>
-            <p class="card-text">
+            <h2 class="card-title"><%= p.name %></h2>
+            <h3 class="card-subtitle mb-2 text-muted"><%= link_to p.location.name , location_path(p.location) %>, <%= p.location.state%> </h3>
+            <h3 class="card-text">
                 Bedrooms: <%= p.bedrooms %></p>
                 Bathrooms: <%= p.bathrooms %></p>
                 Amenities: 
                 <% p.amenities.each do |amenity|%>
-                <li>
-                <%= amenity.name %></li>
+                <p><li> <%= amenity.name %></li></p>
                 <% end %></p>
                 <% if p.available? %>
                     Available 
                 <% end %>
-                <br>
+            <br>
+            <br>
             <button><%= link_to "Edit Property", edit_property_path(p) %></button>
             <button><%= link_to "View Property", property_path(p) %></button>
         </div>
-        </div>
-  <% end %>
-  <hr>
- <br> 
- <br>
-<button type="button" class="btn btn-secondary btn-lg btn-block"><%= link_to "Add new property", new_property_path %></button>
+    </div>
+<% end %>
+</div>
 
-
+<br> 
+<br>
+    <button type="button" class="btn btn-secondary btn-lg btn-block"><a class="text-my-own-color" href="/properties/new">Add a new property</a></button>
 

@@ -21,8 +21,6 @@ class PropertiesController < ApplicationController
     end 
 
     def show
-        # binding.pry
-      
     end
 
     def edit 
@@ -61,6 +59,7 @@ class PropertiesController < ApplicationController
             :bedrooms, 
             :bathrooms, 
             :available,
+            :avatar,
             amenity_ids: [], 
             location_attributes: [ 
                 :name, 
