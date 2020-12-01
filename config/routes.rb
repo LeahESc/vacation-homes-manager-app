@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :properties
   resources :locations, only: [:index, :show] do 
-    resources :properties, only: [:new]
+    resources :properties, only: [:index, :show, :new]
   end 
 
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}

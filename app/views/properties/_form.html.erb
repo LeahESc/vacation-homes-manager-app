@@ -1,14 +1,14 @@
-
-
 <%= form_for property do |f| %>
     <div class= "form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %> <br>
     </div>
+   
+    <% if property.location_id.nil? %>
 
     <div class="form-group">
     <h3>Choose from an existing location: </h3> 
-    <%= f.collection_select :location_id, Location.all, :id, :name, :include_blank => true, class: "form-control"   %> <br>
+    <%= f.collection_select :location_id, Location.all, :id, :name, :include_blank => true, class: "form-control"  %> <br>
     <br>
         <%= f.fields_for :location, Location.new do |p_location| %> <br>
             <h3> Or create a new location: </h3> 
@@ -24,7 +24,10 @@
                     </div>
                 </div>
             </div>
-            <% end %>
+        <% end %>
+    <% else %>
+    <%= f.hidden_field :location_id %>
+    <%end%>
 
     <div class= "form-group">
     <%= f.label :bedrooms %>
@@ -42,8 +45,10 @@
             <%= a.label class:"label-checkbox" do%>
             <%=a.check_box + a.text%>
         <%end%>
-        <% end %>
-        <br>
- 
+    <% end %>
+    <br>
+    <%= f.label :available %>
+    <%= f.check_box :available %> <br>
+
     <%= f.submit @property.persisted? ? "Update Property" : "Add Property" %>
 <% end %>

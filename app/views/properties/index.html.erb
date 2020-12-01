@@ -1,11 +1,11 @@
 <h2> Your vacation properties:  </h2>
 <div class="container">
-     <div class="row row-cols-3">
+     <div class="row row-cols-4">
         <% @properties.each do |p|%>
         <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title"><%= p.name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= p.location.name %>, <%= p.location.state %></h6>
+            <h6 class="card-subtitle mb-2 text-muted"><%= link_to p.location.name , location_path(p.location) %>, <%= p.location.state%> </h6>
             <p class="card-text">
                 Bedrooms: <%= p.bedrooms %></p>
                 Bathrooms: <%= p.bathrooms %></p>
@@ -14,13 +14,19 @@
                 <li>
                 <%= amenity.name %></li>
                 <% end %></p>
+                <% if p.available? %>
+                    Available 
+                <% end %>
+                <br>
             <button><%= link_to "Edit Property", edit_property_path(p) %></button>
             <button><%= link_to "View Property", property_path(p) %></button>
         </div>
         </div>
   <% end %>
-<div class="center">
-    <button><%= link_to "Add new property", new_property_path %></button>
-</div>
+  <hr>
+ <br> 
+ <br>
+<button type="button" class="btn btn-secondary btn-lg btn-block"><%= link_to "Add new property", new_property_path %></button>
+
 
 
