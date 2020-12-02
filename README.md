@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Vactaion Homes Manager Application 
 
-Things you may want to cover:
+Welcome to the Vacation Homes Manager Rails Web Application!  This app was created with the intention
+to create and update your many wonderful vacation properties across the country. It is a Rails project to fulfill project requirements at Flatiron School.
 
-* Ruby version
+## Installation
+Clone this repository and execute:
 
-* System dependencies
+    $bundle install
 
-* Configuration
+Then execute:
 
-* Database creation
+    $rake db:migrate
 
-* Database initialization
 
-* How to run the test suite
+## Usage
+Usage of this Rails basic CRUD app is to allow a user to interact with a home management application. Once signed up or logged in, a user is able to create new vacation properties with photos and details regarding property specifics. They can then view all of their properties, edit them and delete them. 
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
+ This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Deployment instructions
+## License
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-* ...

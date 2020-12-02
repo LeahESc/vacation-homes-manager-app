@@ -1,10 +1,4 @@
-class CallbacksController < Devise::OmniauthCallbacksController
-
-    # def github
-    #     # binding.pry
-    #     @user = User.from_omniauth(request.env['omniauth.auth'])
-    #     sign_in_and_redirect @user
-    # end 
+class CallbacksController < Devise::OmniauthCallbacksController 
 
     def github
         @user = User.create_from_provider_data(request.env['omniauth.auth'])

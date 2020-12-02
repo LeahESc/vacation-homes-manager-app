@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
     before_action :redirect
 
     def index  
-            @locations = current_user.locations.uniq
+        @locations = current_user.locations.uniq
     end 
 
     def show  
@@ -12,7 +12,4 @@ class LocationsController < ApplicationController
             render :show 
         end 
     end 
-
-
-
 end
