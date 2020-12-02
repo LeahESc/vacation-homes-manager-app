@@ -1,6 +1,9 @@
+
 <h1>Your property locations: </h1>
     <% @locations.each do |location| %>
     <ul>
+    <div class="center">
     <h2><%=link_to location.name, location_path(location) %></h3>
     </ul>
+    </div>
     <% end %>

@@ -4,7 +4,7 @@
     <div class="center">
     <button><%= link_to "Add new property to this location", new_location_property_path(@location) %></button>
     </div>
-    
+
 <br>
 <br>
 
@@ -28,6 +28,7 @@
             <% property.amenities.each do |amenity|%>
             <h3><li><%= amenity.name %></li> </h3>
             <% end %></p>
+            <button><%= link_to "View Property", location_property_path(property.location, property) %></button>
             </div>
         </div>
         <% end %>
