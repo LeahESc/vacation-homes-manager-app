@@ -8,7 +8,7 @@
     <%= f.label "Photo" %>
     <%= f.file_field :avatar, class: "form-control" %> <br>
     </div>
-   
+   <% location_set property%>
     <% if property.location_id.nil? %>
 
     <div class="form-group">

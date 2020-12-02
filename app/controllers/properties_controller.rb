@@ -43,7 +43,6 @@ class PropertiesController < ApplicationController
     private 
 
     def set_property 
-        # binding.pry
         @property = current_user.properties.find_by(id: params[:id])
         if !@property
             flash[:error]  = "I'm sorry, you don't have access to view that page."
