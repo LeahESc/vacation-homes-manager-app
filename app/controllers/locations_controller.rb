@@ -8,7 +8,7 @@ class LocationsController < ApplicationController
     def show  
         @location = current_user.locations.find_by(id: params[:id])
         if @location 
-            @properties = current_user.properties.where(location_id: params[:id])
+            @properties = Property.local(params[:id])
             render :show 
         end 
     end 
