@@ -131,9 +131,17 @@
     .row{
         justify-content: space-evenly;
       }
-      .card {  
-        justify-content: center;
-        align-items: center;
+    .card {  
+    justify-content: center;
+    align-items: center;
+    }
+
+    .card-img-top {
+        width: 100%;
+        border-top-left-radius: calc(.25rem - 1px);
+        border-top-right-radius: calc(.25rem - 1px);
+        height: 234px;
+    }
  /* Container */
  
      .container {
