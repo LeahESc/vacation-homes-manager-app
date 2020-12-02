@@ -274,7 +274,7 @@ Devise.setup do |config|
   # config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: 'user,public_repo'
   # config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :google_client_id),
-   Rails.application.credentials.dig(:google, :google_client_secret), scope: 'userinfo.email, userinfo.profile'
+   Rails.application.credentials.dig(:google, :google_client_secret), skip_jwt: true, scope: 'userinfo.email, userinfo.profile'
    config.omniauth :github, Rails.application.credentials.dig(:github, :github_client_id),
    Rails.application.credentials.dig(:github, :github_client_secret), scope: 'user,public_repo'
   config.authentication_keys = [ :login ]
@@ -282,7 +282,7 @@ Devise.setup do |config|
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
-  #
+  #s
   # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
