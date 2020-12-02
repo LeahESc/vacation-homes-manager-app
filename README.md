@@ -14,6 +14,11 @@ Then execute:
 
     $rake db:migrate
 
+Then: 
+
+    $rake db:seed 
+
+    to add seed data (like the pre-programmed amenities) to the database
 
 ## Usage
 Usage of this Rails basic CRUD app is to allow a user to interact with a home management application. Once signed up or logged in, a user is able to create new vacation properties with photos and details regarding property specifics. They can then view all of their properties, edit them and delete them. 

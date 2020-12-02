@@ -63,6 +63,9 @@ class PropertiesController < ApplicationController
             location_attributes: [ 
                 :name, 
                 :state
+            ],
+            amenities_attributes: [ 
+                :name, 
             ]
         )
     end 

@@ -52,7 +52,17 @@
             <%=a.check_box + a.text%>
         <%end%>
     <% end %>
-    <br>
+     <%= f.fields_for :amenities, Amenity.new do |p_amenity| %> <br>
+            <h3> Or create a new amenity: </h3> 
+            <div class= "form-group">
+                <div class="row">
+                    <div class="col">
+                    <%= p_amenity.label :name %>
+                    <%= p_amenity.text_field :name, class:"form-control" %> 
+                    </div>
+                </div>
+            </div>
+        <% end %>
     <%= f.label :available %>
     <%= f.check_box :available %> <br>
 
