@@ -12,7 +12,7 @@ Clone this repository and execute:
 
 Then execute:
 
-    $rake db:migrate
+    $rake db:migrate 
 
 Then: 
 
