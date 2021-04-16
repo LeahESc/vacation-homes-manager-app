@@ -2,8 +2,12 @@ class PropertiesController < ApplicationController
     before_action :redirect
     before_action :set_property, only: [:show, :edit, :update, :destroy]
     
-    def index 
-        @properties = current_user.properties.latest
+    def index
+        if params[:search]
+            @properties = Property.search(params[:search])
+        else  
+            @properties = current_user.properties
+        end
     end 
 
     def new 
@@ -52,6 +56,7 @@ class PropertiesController < ApplicationController
     
     def property_params 
         params.require(:property).permit(
+            :search,
             :name, 
             :user_id, 
             :location_id, 

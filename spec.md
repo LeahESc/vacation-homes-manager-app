@@ -3,7 +3,7 @@
     [x] one has_many 
             user has_many properties
             location has_many properties
-            property has_many amenities
+            property has_many propertyamenities
     [x] one belongs_to 
             property belongs_to user
             property belongs_to location

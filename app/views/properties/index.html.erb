@@ -1,35 +1,45 @@
+
+
+
+
+<%= form_tag properties_path, method: :get do %>
+  <%= label_tag  "Search for a location name:" %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <h1> Your vacation properties </h1>
 <div class="container">
      <div class="row row-cols-3">
-        <% @properties.each do |p|%>
-        <div class="card" style="width: 22rem;">
-        <% if p.avatar.attached? %>
-        <img src="<%= (url_for(p.avatar)) %>" class="card-img-top" alt="...">
-        <% end %>
-        <div class="card-body">
-        
-         
-            <h2 class="card-title"><%= p.name %></h2>
-            <h3 class="card-subtitle mb-2 text-muted"><%= link_to p.location.name , location_path(p.location) %>, <%= p.location.state%> </h3>
-            <h3 class="card-text">
-                Bedrooms: <%= p.bedrooms %></p>
-                Bathrooms: <%= p.bathrooms %></p>
-                Amenities: 
-                <% p.amenities.each do |amenity|%>
-                <p><li> <%= amenity.name %></li></p>
-                <% end %></p>
-                <% if p.available? %>
-                    Available 
-                <% end %>
-            <br>
-            <br>
-            <button><%= link_to "Edit Property", edit_property_path(p) %></button>
-            <button><%= link_to "View Property", property_path(p) %></button>
+            <% @properties.each do |p|%>
+            <div class="card" style="width: 22rem;">
+            <% if p.avatar.attached? %>
+            <img src="<%= (url_for(p.avatar)) %>" class="card-img-top" alt="...">
+            <% end %>
+            <div class="card-body">
+            
+            
+                <h2 class="card-title"><%= p.name %></h2>
+                <h3 class="card-subtitle mb-2 text-muted"><%= link_to p.location.name , location_path(p.location) %>, <%= p.location.state%> </h3>
+                <h3 class="card-text">
+                    Bedrooms: <%= p.bedrooms %></p>
+                    Bathrooms: <%= p.bathrooms %></p>
+                    Amenities: 
+                    <% p.amenities.each do |amenity|%>
+                    <p><li> <%= amenity.name %></li></p>
+                    <% end %></p>
+                    <% if p.available? %>
+                        Available 
+                    <% end %>
+                <br>
+                <br>
+                <button><%= link_to "Edit Property", edit_property_path(p) %></button>
+                <button><%= link_to "View Property", property_path(p) %></button>
+            </div>
         </div>
+    <% end %>
     </div>
-<% end %>
-</div>
-
+   
 <br> 
 <br>
     <button type="button" class="btn btn-secondary btn-lg btn-block"><a class="text-my-own-color" href="/properties/new">Add a new property</a></button>

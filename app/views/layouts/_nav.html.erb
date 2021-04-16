@@ -14,7 +14,7 @@
             Locations
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% current_user.locations.uniq.each do |location| %>
+            <% current_user.locations.each do |location| %>
             <a class="dropdown-item" href="/locations/<%= location.id %>"><%= location.name %></a>
             <%end%>
           </div>

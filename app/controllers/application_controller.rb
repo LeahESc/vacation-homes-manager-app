@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    
+  before_action :authenticate_user!, only: [:new,:create,:destroy]
    
     def welcome
       if user_signed_in? 
